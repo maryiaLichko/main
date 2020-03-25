@@ -1,9 +1,5 @@
+from django.contrib.auth.models import User
 from django.db import models
-from django.db.models import ManyToManyField
-
-
-class Users(models.Model):
-    nickname = models.CharField(max_length=20)
 
 
 class Tasks(models.Model):
@@ -18,6 +14,7 @@ class Tasks(models.Model):
     tasks_type = models.CharField(max_length=20,
                                   choices=TASKS_TYPES,
                                   default='specials')
+    scores = models.CharField(max_length=20)
 
     def __str__(self):
         return self.title
@@ -25,9 +22,10 @@ class Tasks(models.Model):
 
 class Teams(models.Model):
     name = models.CharField(max_length=200)
-    members = models.ManyToManyField(Users)
     done_tasks = models.ManyToManyField(Tasks)
 
 
-class Score(models.Model):
-    score_of_the_team: ManyToManyField = models.ManyToManyField(Teams)
+class Profile(models.Model):
+    is_captain = models.BooleanField(default=False)
+    user = models.OneToOneField(User)
+    team = models.ForeignKey(Teams, on_delete=models.CASCADE)
