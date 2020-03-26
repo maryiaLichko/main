@@ -38,7 +38,7 @@ urlpatterns = [
          name='team_view'),
     path('tasks/', TasksView.as_view(),
          name='tasks_view'),
-    path('teams_detail', TeamsDetailView.as_view(),
+    path('teams/<int:pk>/', TeamsDetailView.as_view(),
          name='teams_detail'),
     path('admin_team', AdminTeamView.as_view(),
          name='admin_team'),
