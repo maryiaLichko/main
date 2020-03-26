@@ -14,7 +14,7 @@ class Tasks(models.Model):
     tasks_type = models.CharField(max_length=20,
                                   choices=TASKS_TYPES,
                                   default='specials')
-    scores = models.CharField(max_length=20)
+    scores = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title
