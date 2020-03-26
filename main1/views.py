@@ -15,7 +15,3 @@ class TasksView(ListView):
 
 class TeamsDetailView(DetailView):
     model = Teams
-
-
-class AdminTeamView(ListView):
-    model = Teams
