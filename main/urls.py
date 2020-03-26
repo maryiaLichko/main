@@ -30,7 +30,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from main1.views import TeamsView, TasksView, TeamsDetailView, AdminTeamView
+from main1.views import TeamsView, TasksView, TeamsDetailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -39,7 +39,5 @@ urlpatterns = [
     path('tasks/', TasksView.as_view(),
          name='tasks_view'),
     path('teams/<int:pk>/', TeamsDetailView.as_view(),
-         name='teams_detail'),
-    path('admin_team', AdminTeamView.as_view(),
-         name='admin_team'),
+         name='teams_detail')
 ]
