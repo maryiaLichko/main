@@ -4,8 +4,4 @@ from django.contrib import admin
 from main1.models import Teams
 
 
-class TeamsAdmin(admin.TeamsAdmin):
-    model = Teams
-
-
-admin.site.register(TeamsAdmin)
+admin.site.register(Teams)
