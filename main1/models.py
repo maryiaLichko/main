@@ -27,5 +27,5 @@ class Teams(models.Model):
 
 class Profile(models.Model):
     is_captain = models.BooleanField(default=False)
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     team = models.ForeignKey(Teams, on_delete=models.CASCADE)
