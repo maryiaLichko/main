@@ -34,10 +34,10 @@ from main1.views import TeamsView, TasksView, TeamsDetailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('teams/<int:pk>/', TeamsDetailView.as_view(),
+         name='teams_detail'),
     path('teams/', TeamsView.as_view(),
          name='team_view'),
     path('tasks/', TasksView.as_view(),
-         name='tasks_view'),
-    path('teams/<int:pk>/', TeamsDetailView.as_view(),
-         name='teams_detail')
+         name='tasks_view')
 ]
