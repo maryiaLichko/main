@@ -15,3 +15,12 @@ class TasksView(ListView):
 
 class TeamsDetailView(DetailView):
     model = Teams
+
+
+class TeamsDetail(DetailView):
+    model = Teams
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context['participants_list'] = Teams.get
+        return context
