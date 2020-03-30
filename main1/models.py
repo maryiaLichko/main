@@ -21,6 +21,7 @@ class Tasks(models.Model):
 
 
 class Teams(models.Model):
+    profile_set = None
     name = models.CharField(max_length=200)
     done_tasks = models.ManyToManyField(Tasks)
 
