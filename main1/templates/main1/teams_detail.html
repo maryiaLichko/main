@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title></title>
+        <title>Scores</title>
 </head>
 <body>
-        <h2>Publishers</h2>
+        <h2>Kelsher Skate Contest</h2>
+        <p>Team: {{object.name}}</p>
+        <p>Score: {{object.sum}}</p>
     <ul>
-        {% for team in object %}
+        {% for team in object.members %}
             <li>{{ team.name }}</li>
         {% endfor %}
     </ul>
