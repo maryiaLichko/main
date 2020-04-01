@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.db.models import Sum
 
 
 class Tasks(models.Model):
@@ -25,8 +26,12 @@ class Teams(models.Model):
     name = models.CharField(max_length=200)
     done_tasks = models.ManyToManyField(Tasks)
 
+    def sum(self):
+        sum = self.done_tasks.all().aggregate(scores=Sum('scores'))
+        return sum['scores']
 
-class Profile(models.Model):
+
+class Profile(models.Model): 
     is_captain = models.BooleanField(default=False)
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     team = models.ForeignKey(Teams, on_delete=models.CASCADE)
